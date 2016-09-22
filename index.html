@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app4com" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Front End Task</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="mainCtrl as vm" resize>
+<div id="container">
+    <div class="row">
+        <div class="col md-4 xs-10">
+            <h2>Investing with a company on the rise...</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id felis odio. Aliquam vel sagittis metus,
+                in interdum magna.</p>
+            <button class="btn">read more</button>
+        </div>
+        <div class="col md-6 xs-10">
+            <h1>{{vm.amount | currency : "£" : 0}}</h1>
+            <h3>Yearly turnover {{vm.lastYear}}</h3>
+            <div id="svgContainer">
+                <svg id="svg"></svg>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col xs-10">
+            <div id="carousel">
+                <div class="action left-xs icon-arrowRight visible-sm" ng-click="vm.carouselAction('prev')"></div>
+                <div class="action right-xs icon-arrowLeft visible-sm" ng-click="vm.carouselAction('next')"></div>
+                <img class="absoluteLogo" src="http://www.4com.co.uk/wp-content/uploads/2015/07/4Com-foundation-Logo_high-res-e1438096320241.jpg">
+                <div class="col md-4 xs-10 leftCol" ng-class="{active : vm.active}">
+                    <div class="action left-lg icon-arrowLeft hidden-sm" ng-click="vm.carouselAction('prev')"></div>
+                    <img class="logo" src="http://www.4com.co.uk/wp-content/uploads/2015/07/4Com-foundation-Logo_high-res-e1438096320241.jpg">
+                    <h2 class="resetMargin" ng-bind-html="vm.currentData.text"></h2>
+                    <button class="btn">{{vm.currentData.button}}</button>
+                </div>
+                <div class="col md-6 xs-10 rightCol" ng-class="{active : vm.active}">
+                    <div class="action right-lg icon-arrowRight hidden-sm" ng-click="vm.carouselAction('next')"></div>
+                    <div class="bgImage" ng-style="{'background':'url(img/' + vm.currentData.image + ') no-repeat 50%'}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="js/snap.svg-min.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+<script type="text/javascript" src="js/controlles.js"></script>
+<script type="text/javascript" src="js/directories.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
